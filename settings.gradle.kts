@@ -5,4 +5,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "ScenarioDataGenerator"
+rootProject.name = "CucumberDataGenerator"

@@ -1,22 +1,31 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
   <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-  <id>com.mahmoud.ScenarioDataGenerator</id>
+  <id>com.mahmoud.CucumberDataGenerator</id>
 
   <!-- Public plugin name should be written in Title Case.
        Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-  <name>ScenarioDataGenerator</name>
+  <name>Cucumber Data Class Generator</name>
 
   <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-  <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="mahmoud.ibrahim016@gmail.com">Mahmoud Ibrahim</vendor>
 
   <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
        Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
        Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
-  <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-  ]]></description>
+    <description><![CDATA[
+    This plugin helps you to convert the Cucumber scenarios data table into Kotlin data classes.
+    <ul></ul>
+    <br>
+    <strong>Key Features:</strong>
+    <ul>
+      <li>Automatically generates Kotlin data classes from scenarios data table.</li>
+      <li>Enhances productivity by simplifying the process of creating data classes.</li>
+      <li>Integrates seamlessly with the IntelliJ IDEA and Android Studio.</li>
+      <li>Offers a user-friendly interface for managing and configuring data class generation.</li>
+
+    </ul>
+    ]]></description>
 
   <!-- Product and plugin compatibility requirements.
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -27,4 +36,17 @@
   <extensions defaultExtensionNs="com.intellij">
 
   </extensions>
+
+  <actions>
+    <group
+            id="GenerateDataClassAction"
+            description="Generate data class action group">
+      <action
+              id="com.mahmoud.cucumberdatagenerator.GenerateDataClassAction"
+              class="com.mahmoud.cucumberdatagenerator.GenerateDataClassAction"
+              text="Generate Data Class"
+              description="Generate data class model for the cucumber data table"/>
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+    </group>
+  </actions>
 </idea-plugin>

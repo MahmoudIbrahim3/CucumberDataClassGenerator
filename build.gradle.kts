@@ -1,11 +1,11 @@
 plugins {
   id("java")
-  id("org.jetbrains.kotlin.jvm") version "1.9.0"
-  id("org.jetbrains.intellij") version "1.15.0"
+  id("org.jetbrains.kotlin.jvm") version "1.9.21"
+  id("org.jetbrains.intellij") version "1.17.4"
 }
 
 group = "com.mahmoud"
-version = "1.0-SNAPSHOT"
+version = "1.0.4"
 
 repositories {
   mavenCentral()
@@ -14,7 +14,7 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-  version.set("2022.2.5")
+  version.set("2023.2.3")
   type.set("IC") // Target IDE Platform
 
   plugins.set(listOf(/* Plugin Dependencies */))
@@ -32,7 +32,7 @@ tasks {
 
   patchPluginXml {
     sinceBuild.set("222")
-    untilBuild.set("232.*")
+    untilBuild.set("242.*")
   }
 
   signPlugin {
@@ -42,6 +42,10 @@ tasks {
   }
 
   publishPlugin {
-    token.set(System.getenv("PUBLISH_TOKEN"))
+    val env: Map<String, String> = System.getenv()
+    for ((key, value) in env) {
+      println("$key: $value")
+    }
+    token.set("perm:bWFobW91ZC5pYnJhaGltMDE2.OTItOTQ1Nw==.HlDE5YsxEd2zwYRqFeDap3LW9wPw2D")
   }
 }
